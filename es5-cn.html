@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>ECMAScript5.1中文版</title>
@@ -1886,38 +1887,34 @@
     <p id="block108">
         非终结符以 斜体 (italic) 显示。一个非终结符的定义由非终结符名称和其后定义的一个或多个冒号给出。（冒号的数量表示产生式所属的文法。）非终结符的右侧有一个或多个替代子紧跟在下一行。 例如，语法定义：
     </p>
-    <dl class="grammar" id="block109">
-        <dt>WhileStatement</dt>
-        <dd>
-            <code class="block" id="block109">
-            while ( Expression ) Statement
-            </code>
-        </dd>
-    </dl>
+    <code class="block" id="block109">
+        WhileStatement
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while ( Expression ) Statement
+    </code>
     <p id="block110">
         表示这个非终结符 WhileStatement 代表 while token，其后跟左括号 token，其后跟 Expression，其后跟右括号 token，其后跟 Statement。这里出现的 Expression 和 Statement 本身是非终结符。另一个例子，语法定义：</p>
-    <code class="block" id="block111">ArgumentList : AssignmentExpression<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ArgumentList , AssignmentExpression</code>
+    <code class="block" id="block111">ArgumentList : AssignmentExpression
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ArgumentList , AssignmentExpression</code>
     <p id="block112">
         表示这个 ArgumentList 可以代表一个 AssignmentExpression，或 ArgumentList，其后跟一个逗号，其后跟一个 AssignmentExpression。这个 ArgumentList 的定义是递归的，也就是说，它定义它自身。其结果是，一个 ArgumentList 可能包含用逗号隔开的任意正数个参数，每个参数表达式是一个 AssignmentExpression。这样，非终结符共用了递归的定义。</p>
     <p id="block113">
         终结符或非终结符可能会出现后缀下标“ <sub>opt</sub> ”，表示它是可选符号。实际上包含可选符号的替代子包含两个右边，一个是省略可选元素的，另一个是包含可选元素的。这意味着：</p>
-    <code class="block" id="block114">VariableDeclaration : Identifier Initialiseropt</code>
+    <code class="block" id="block114">VariableDeclaration : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identifier Initialiser<sub>opt</sub></code>
     <p id="block115">
         是以下的一种缩写：</p>
-    <code class="block" id="block116">VariableDeclaration : Identifier Identifier Initialiser</code>
+    <code class="block" id="block116">VariableDeclaration : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identifier Identifier Initialiser</code>
     <p id="block117">
         并且：</p>
-    <code class="block" id="block118">IterationStatement : for ( ExpressionNoInopt ; Expressionopt ; Expressionopt ) Statement</code>
+    <code class="block" id="block118">IterationStatement : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ExpressionNoIn<sub>opt</sub> ; Expression<sub>opt</sub> ; Expression<sub>opt</sub> ) Statement</code>
     <p id="block119">
         是以下的一种缩写：</p>
-    <code class="block" id="block120">IterationStatement : for ( ; Expressionopt ; Expressionopt ) Statement for ( ExpressionNoIn ; Expressionopt ; Expressionopt ) Statement</code>
+    <code class="block" id="block120">IterationStatement : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ; Expression<sub>opt</sub> ; Expression<sub>opt</sub> ) Statement <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ExpressionNoIn ; Expression<sub>opt</sub> ; Expression<sub>opt</sub> ) Statement</code>
     <p id="block121">
         是以下的一种缩写 :</p>
-    <code class="block" id="block122">IterationStatement : for ( ; ; Expressionopt ) Statement for ( ; Expression ; Expressionopt) Statement for ( ExpressionNoIn ; ; Expressionopt) Statement for ( ExpressionNoIn ; Expression ; Expressionopt) Statement</code>
+    <code class="block" id="block122">IterationStatement : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ; ; Expression<sub>opt</sub> ) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ; Expression ; Expression<sub>opt</sub>) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ExpressionNoIn ; ; Expression<sub>opt</sub>) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ExpressionNoIn ; Expression ; Expression<sub>opt</sub>) Statement</code>
     <p id="block123">
         是以下的一种缩写：</p>
-    <code class="block" id="block124">IterationStatement : for ( ; ; ) Statement for ( ; ; Expression ) Statement for ( ; Expression ; ) Statement for ( ; Expression ; Expression ) Statement for ( ExpressionNoIn ; ; ) Statement for ( ExpressionNoIn ; ; Expression ) Statement for ( ExpressionNoIn ; Expression ; ) Statement for ( ExpressionNoIn ; Expression ; Expression ) Statement</code>
+    <code class="block" id="block124">IterationStatement : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ; ; ) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ; ; Expression ) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ; Expression ; ) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ; Expression ; Expression ) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ExpressionNoIn ; ; ) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ExpressionNoIn ; ; Expression ) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ExpressionNoIn ; Expression ; ) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ExpressionNoIn ; Expression ; Expression ) Statement</code>
     <p id="block125">
         因此，非终结 IterationStatement 实际上有 8 个右侧变体。</p>
     <p id="block126">
