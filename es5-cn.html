@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>ECMAScript5.1中文版</title>
@@ -5417,7 +5416,17 @@
     </h2>
     <p id="block712">
         语法：</p>
-    <code class="block" id="block713">UnaryExpression : PostfixExpression delete UnaryExpression void UnaryExpression typeof UnaryExpression ++ UnaryExpression -- UnaryExpression + UnaryExpression - UnaryExpression ~ UnaryExpression&nbsp; ! UnaryExpression</code>
+    <code class="block" id="block713">UnaryExpression : 
+            PostfixExpression 
+            delete UnaryExpression 
+            void UnaryExpression 
+            typeof UnaryExpression 
+            ++ UnaryExpression 
+            -- UnaryExpression 
+            + UnaryExpression 
+            - UnaryExpression 
+            ~ UnaryExpression
+            ! UnaryExpression</code>
     <h3 class="chapter"><a id="171">delete 运算符</a>
     </h3>
     <p id="block714">
@@ -5432,7 +5441,7 @@
         </li>
     </ol>
     <div class="note" id="block716">
-        <p>当delete运算符出现在strict模式代码中的时候，若UnaryExpression是到变量，函数形参或者函数名的直接引用则抛出一个SyntaxError异常。此外若delete运算符出现在严格模式代码中且要删除的属性具有特性{ [[Configurable]]: false }，抛出一个TypeError异常。</p>
+        <p>当delete运算符出现在strict模式代码中的时候，若UnaryExpression是直接变量，函数形参或者函数名的直接引用则抛出一个SyntaxError异常。此外若delete运算符出现在严格模式代码中且要删除的属性具有特性{ [[Configurable]]: false }，抛出一个TypeError异常。</p>
     </div>
     <h3 class="chapter"><a id="172">void 运算符</a>
     </h3>
@@ -5546,7 +5555,7 @@
     <h3 class="chapter"><a id="177">一元 - 运算符</a>
     </h3>
     <p id="block730">
-        一元+运算符将其操作数转换为Number类型并反转其正负。注意负的+0产生-0，负的-0产生+0。</p>
+        一元-运算符将其操作数转换为Number类型并反转其正负。注意负的+0产生-0，负的-0产生+0。</p>
     <p id="block731">
         产生式 UnaryExpression : - UnaryExpression 按照下面的过程执行 :
     </p>
