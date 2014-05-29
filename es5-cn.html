@@ -101,7 +101,7 @@
                     </li>
                 </ol>
             </li>
-            <li><a href="./ECMAScript5.1中文版_files/ECMAScript5.1中文版.htm" class="chapter">记法约定</a>
+            <li><a href="#41" class="chapter">记法约定</a>
                 <ol>
                     <li><a href="#42" class="chapter">语法和词法的文法</a>
                         <ol>
@@ -1886,73 +1886,77 @@
     <p id="block108">
         非终结符以 斜体 (italic) 显示。一个非终结符的定义由非终结符名称和其后定义的一个或多个冒号给出。（冒号的数量表示产生式所属的文法。）非终结符的右侧有一个或多个替代子紧跟在下一行。 例如，语法定义：
     </p>
-    <dl class="grammar" id="block109">
-        <dt>WhileStatement</dt>
-        <dd>
-            while ( Expression ) Statement</dd>
-    </dl>
+    <code class="block" id="block109">
+        WhileStatement:
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while ( Expression ) Statement
+    </code>
     <p id="block110">
         表示这个非终结符 WhileStatement 代表 while token，其后跟左括号 token，其后跟 Expression，其后跟右括号 token，其后跟 Statement。这里出现的 Expression 和 Statement 本身是非终结符。另一个例子，语法定义：</p>
+<<<<<<< HEAD
     <code class="block" id="block111">ArgumentList : AssignmentExpression <br> ArgumentList , AssignmentExpression</code>
+=======
+    <code class="block" id="block111">ArgumentList : AssignmentExpression
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ArgumentList , AssignmentExpression</code>
+>>>>>>> b014494fcddc8cc7a63058bb8571a57d37aab394
     <p id="block112">
         表示这个 ArgumentList 可以代表一个 AssignmentExpression，或 ArgumentList，其后跟一个逗号，其后跟一个 AssignmentExpression。这个 ArgumentList 的定义是递归的，也就是说，它定义它自身。其结果是，一个 ArgumentList 可能包含用逗号隔开的任意正数个参数，每个参数表达式是一个 AssignmentExpression。这样，非终结符共用了递归的定义。</p>
     <p id="block113">
         终结符或非终结符可能会出现后缀下标“ <sub>opt</sub> ”，表示它是可选符号。实际上包含可选符号的替代子包含两个右边，一个是省略可选元素的，另一个是包含可选元素的。这意味着：</p>
-    <code class="block" id="block114">VariableDeclaration : Identifier Initialiseropt</code>
+    <code class="block" id="block114">VariableDeclaration : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identifier Initialiser<sub>opt</sub></code>
     <p id="block115">
         是以下的一种缩写：</p>
-    <code class="block" id="block116">VariableDeclaration : Identifier Identifier Initialiser</code>
+    <code class="block" id="block116">VariableDeclaration : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identifier Identifier Initialiser</code>
     <p id="block117">
         并且：</p>
-    <code class="block" id="block118">IterationStatement : for ( ExpressionNoInopt ; Expressionopt ; Expressionopt ) Statement</code>
+    <code class="block" id="block118">IterationStatement : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ExpressionNoIn<sub>opt</sub> ; Expression<sub>opt</sub> ; Expression<sub>opt</sub> ) Statement</code>
     <p id="block119">
         是以下的一种缩写：</p>
-    <code class="block" id="block120">IterationStatement : for ( ; Expressionopt ; Expressionopt ) Statement for ( ExpressionNoIn ; Expressionopt ; Expressionopt ) Statement</code>
+    <code class="block" id="block120">IterationStatement : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ; Expression<sub>opt</sub> ; Expression<sub>opt</sub> ) Statement <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ExpressionNoIn ; Expression<sub>opt</sub> ; Expression<sub>opt</sub> ) Statement</code>
     <p id="block121">
         是以下的一种缩写 :</p>
-    <code class="block" id="block122">IterationStatement : for ( ; ; Expressionopt ) Statement for ( ; Expression ; Expressionopt) Statement for ( ExpressionNoIn ; ; Expressionopt) Statement for ( ExpressionNoIn ; Expression ; Expressionopt) Statement</code>
+    <code class="block" id="block122">IterationStatement : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ; ; Expression<sub>opt</sub> ) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ; Expression ; Expression<sub>opt</sub>) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ExpressionNoIn ; ; Expression<sub>opt</sub>) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ExpressionNoIn ; Expression ; Expression<sub>opt</sub>) Statement</code>
     <p id="block123">
         是以下的一种缩写：</p>
-    <code class="block" id="block124">IterationStatement : for ( ; ; ) Statement for ( ; ; Expression ) Statement for ( ; Expression ; ) Statement for ( ; Expression ; Expression ) Statement for ( ExpressionNoIn ; ; ) Statement for ( ExpressionNoIn ; ; Expression ) Statement for ( ExpressionNoIn ; Expression ; ) Statement for ( ExpressionNoIn ; Expression ; Expression ) Statement</code>
+    <code class="block" id="block124">IterationStatement : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ; ; ) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ; ; Expression ) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ; Expression ; ) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ; Expression ; Expression ) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ExpressionNoIn ; ; ) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ExpressionNoIn ; ; Expression ) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ExpressionNoIn ; Expression ; ) Statement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( ExpressionNoIn ; Expression ; Expression ) Statement</code>
     <p id="block125">
         因此，非终结 IterationStatement 实际上有 8 个右侧变体。</p>
     <p id="block126">
         如果文法定义的冒号后面出现文字“one of”，那么其后一行或多行出现的每个终结符都是一个选择定义。例如，ECMAScript 包含的词法文法生产器：
     </p>
-    <code class="block" id="block127">NonZeroDigit :: one of 1 2 3 4 5 6 7 8 9</code>
+    <code class="block" id="block127">NonZeroDigit :: one of <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 2 3 4 5 6 7 8 9</code>
     <p id="block128">
         这仅仅下面写法的一种缩写：</p>
-    <code class="block" id="block129">NonZeroDigit :: 1 2 3 4 5 6 7 8 9
+    <code class="block" id="block129">NonZeroDigit :: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9
     </code>
     <p id="block130">
         如果产生式的右侧是出现“[empty]”，它表明，产生式的右侧不包含终结符或非终结符。</p>
     <p id="block131">
         如果产生式的右侧出现“[lookahead ∉ set]”，它表明，给定 set 的成员不得成为产生式紧随其后的 token。这个 set 可以写成一个大括号括起来的终结符列表。为方便起见，set 也可以写成一个非终结符，在这种情况下，它代表了这个非终结符 set 可扩展所有终结符。例如，给出定义</p>
     <code class="block" id="block132">DecimalDigit :: one of 0 1 2 3 4 5 6 7 8 9</code>
-    <code class="block" id="block133">DecimalDigits :: DecimalDigit DecimalDigits DecimalDigit</code>
+    <code class="block" id="block133">DecimalDigits ::<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DecimalDigit<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DecimalDigits DecimalDigit</code>
     <p id="block134">
         在定义</p>
-    <code class="block" id="block135">LookaheadExample :: n [lookahead ∉ {1 , 3 , 5 , 7 , 9}]DecimalDigits DecimalDigit [lookahead ∉ DecimalDigit ]</code>
+    <code class="block" id="block135">LookaheadExample ::<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; n [lookahead ∉ {1 , 3 , 5 , 7 , 9}]DecimalDigits <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DecimalDigit [lookahead ∉ DecimalDigit ]</code>
     <p id="block136">
         能匹配字母 n 后跟随由偶数起始的一个或多个十进制数字，或一个十进制数字后面跟随一个非十进制数字。</p>
     <p id="block137">
         如果产生式的右侧出现“[no LineTerminator here]”，那么它表示此产生式是个受限的产生式：如果 LineTerminator 在输入流的指定位置出现，那么此产生式将不会被适用。例如，产生式：
     </p>
-    <code class="block" id="block138">ThrowStatement : throw [no LineTerminator here] Expression ;</code>
+    <code class="block" id="block138">ThrowStatement :<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throw [no LineTerminator here] Expression ;</code>
     <p id="block139">
-        表示如果程序中 return token 和 Expression 之间的出现 LineTerminator，那么不得使用此产生式。</p>
+        表示如果程序中 throw token 和 Expression 之间的出现 LineTerminator，那么不得使用此产生式。</p>
     <p id="block140">
-        LineTerminator 除了禁止出现在受限的产生式，可以在输入元素流的任何两个 tokens 之间出现任意次数，而不会影响程序的语法验证。</p>
+        LineTerminator 除了禁止出现在受限的产生式之外，可以在输入元素流的任何两个 tokens 之间出现任意次数，而不会影响程序的语法验证。</p>
     <p id="block141">
         当一个词法文法产生式或数字字符串文法中出现多字符 token，它表示此字符序列将注册一个 token。</p>
     <p id="block142">
-        使用词组“but not“可以指定某些不允许在产生式右侧的扩展，它说明排除这个扩展。例如，产生式：</p>
-    <code class="block" id="block143">Identifier :: IdentifierName but not ReservedWord</code>
+        使用符号“but not“可以指定某些不允许在产生式右侧的扩展，它说明排除这个扩展。例如，产生式：</p>
+    <code class="block" id="block143">Identifier ::<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IdentifierName but not ReservedWord</code>
     <p id="block144">
         此非终结符 Identifier 可以由可替换成 IdentifierName 的字符序列替换，相同的字符序列不能替换 ReservedWord。</p>
     <p id="block145">
         最后，对于实际上不可能列出全部可变元的少量非终结符，我们用普通字体写出描述性的短语来描述它们：</p>
-    <code class="block" id="block146">SourceCharacter :: any Unicode code unit</code>
+    <code class="block" id="block146">SourceCharacter ::<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; any Unicode code unit</code>
     <h2 class="chapter"><a id="49">算法约定</a>
     </h2>
     <p id="block147">
@@ -5416,7 +5420,17 @@
     </h2>
     <p id="block712">
         语法：</p>
-    <code class="block" id="block713">UnaryExpression : PostfixExpression delete UnaryExpression void UnaryExpression typeof UnaryExpression ++ UnaryExpression -- UnaryExpression + UnaryExpression - UnaryExpression ~ UnaryExpression&nbsp; ! UnaryExpression</code>
+    <code class="block" id="block713">UnaryExpression : 
+            PostfixExpression 
+            delete UnaryExpression 
+            void UnaryExpression 
+            typeof UnaryExpression 
+            ++ UnaryExpression 
+            -- UnaryExpression 
+            + UnaryExpression 
+            - UnaryExpression 
+            ~ UnaryExpression
+            ! UnaryExpression</code>
     <h3 class="chapter"><a id="171">delete 运算符</a>
     </h3>
     <p id="block714">
@@ -5431,7 +5445,7 @@
         </li>
     </ol>
     <div class="note" id="block716">
-        <p>当delete运算符出现在strict模式代码中的时候，若UnaryExpression是到变量，函数形参或者函数名的直接引用则抛出一个SyntaxError异常。此外若delete运算符出现在严格模式代码中且要删除的属性具有特性{ [[Configurable]]: false }，抛出一个TypeError异常。</p>
+        <p>当delete运算符出现在strict模式代码中的时候，若UnaryExpression是直接变量，函数形参或者函数名的直接引用则抛出一个SyntaxError异常。此外若delete运算符出现在严格模式代码中且要删除的属性具有特性{ [[Configurable]]: false }，抛出一个TypeError异常。</p>
     </div>
     <h3 class="chapter"><a id="172">void 运算符</a>
     </h3>
@@ -5545,7 +5559,7 @@
     <h3 class="chapter"><a id="177">一元 - 运算符</a>
     </h3>
     <p id="block730">
-        一元+运算符将其操作数转换为Number类型并反转其正负。注意负的+0产生-0，负的-0产生+0。</p>
+        一元-运算符将其操作数转换为Number类型并反转其正负。注意负的+0产生-0，负的-0产生+0。</p>
     <p id="block731">
         产生式 UnaryExpression : - UnaryExpression 按照下面的过程执行 :
     </p>
